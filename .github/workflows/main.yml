@@ -23,6 +23,7 @@ jobs:
       id: extract_branch
     - name: Analyze codebase
       run: |
+        pip install --upgrade pip
         pip install --upgrade setuptools wheel
         pip install -r requirements.txt
         ${GITHUB_WORKSPACE}/sl analyze --app flask-webgoat --tag branch=${{ github.head_ref || steps.extract_branch.outputs.branch }} --python --cpg .
